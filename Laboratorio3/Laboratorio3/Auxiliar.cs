@@ -52,6 +52,9 @@ namespace Laboratorio3
                 if (usuario.rut == rutAuxiliar1)
                 {
                     usuario.SetSueldo(sueldoAuxiliar1);
+                    Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("SUELDO CAMBIADO CON EXITO");
+                    Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Black;
                 }
             }
             return auxiliares;
@@ -70,11 +73,37 @@ namespace Laboratorio3
                 if (usuario.rut == rutAuxiliar2)
                 {
                     usuario.SetHorarioTrabajo(horaEntradaAuxiliar1, horaSalidaAuxiliar1);
+                    Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("HORARIO CAMBIADO CON EXITO");
+                    Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Black;
                 }
             }
             return auxiliares;
         }
 
+        public static void LimpiarPasillo(List<Auxiliar> auxiliares)
+        {
+            Console.WriteLine("RUT AUXILIAR: ");
+            string rut = Console.ReadLine();
+            Console.WriteLine("INGRESE NUMERO DE PASILLO QUE DESEA LIMPIAR: ");
+            string numeroPasillo = Console.ReadLine();
+            foreach(Auxiliar usuario in auxiliares)
+            {
+                if (usuario.rut == rut)
+                {
+                    string nombreAuxiliar = usuario.nombre;
+                    string apellidoAuxiliar = usuario.apellido;
+
+                    Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine(nombreAuxiliar + " " + apellidoAuxiliar + " ha limpiado el pasillo " + numeroPasillo);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                } else
+                {
+                    Console.WriteLine("No hay auxiliar registado con ese Rut");
+                }
+            }
+
+        }
 
     }
 }

@@ -56,7 +56,7 @@ namespace Laboratorio3
         }
 
 
-        public string FinalizarCompra(string rut, List<Cliente> clientes)
+        public string FinalizarCompra(string rutCliente,string rutCajero, List<Cliente> clientes, List<Cajero> cajeros)
         {
             string compraFinal = "";
             Console.WriteLine(Environment.NewLine + "Fecha de compra (dd/mm/aaaa) :");
@@ -67,16 +67,25 @@ namespace Laboratorio3
             compraFinal = "Fecha de compra: " + fechaCompra + Environment.NewLine + "Hora de compra: " + horaCompra + Environment.NewLine + "Productos:"+ Environment.NewLine;
             foreach(Producto producto in carrito)
             {
-                compraFinal += producto.Informacion() + Environment.NewLine;
+                compraFinal += producto.InformacionSinStock() + Environment.NewLine;
             }
             compraFinal += "Total Compra $: " + TotalCompra() + Environment.NewLine;
 
             foreach(Cliente cliente in clientes)
             {
-                if (cliente.rut == rut)
+                if (cliente.rut == rutCliente)
                 {
+                    Console.WriteLine(Environment.NewLine);
                     compraFinal += "Cliente: " + cliente.Informacion();
-                } 
+                }
+            }
+            foreach (Cajero cajero in cajeros)
+            {
+                if (cajero.rut == rutCajero)
+                {
+                    Console.WriteLine(Environment.NewLine);
+                    compraFinal += "Cajero: " + cajero.Informacion();
+                }
             }
             return compraFinal;
 

@@ -43,6 +43,11 @@ namespace Laboratorio3
             return "Nombre: "+ nombre + " Marca: " + marca + " Precio : $"+ precio + " Stock: "+ stock;
         }
 
+        public string InformacionSinStock()
+        {
+            return "Nombre: " + nombre + " Marca: " + marca + " Precio : $" + precio;
+        }
+
         public static Producto AgregarProducto()
         {
             Console.WriteLine("Nombre:");

@@ -8,6 +8,7 @@ namespace Laboratorio3
     {
         public static void Main(string[] args)
         {
+          
             List<Cliente> clientes = new List<Cliente>();
             List<Producto> productos = new List<Producto>();
             List<Jefe> jefes = new List<Jefe>();
@@ -48,6 +49,7 @@ namespace Laboratorio3
 
                     while (opcion != 7)
                     {
+                        Console.WriteLine(Environment.NewLine);
                         Console.WriteLine("[1]AGREGAR JEFE");
                         Console.WriteLine("[2]MOSTRAR JEFES");
                         Console.WriteLine("[3]AGREGAR SUPERVISOR");
@@ -55,6 +57,7 @@ namespace Laboratorio3
                         Console.WriteLine("[5]CAMBIAR SUELDO SUPERVISOR");
                         Console.WriteLine("[6]CAMBIAR HORARIO SUPERVISOR");
                         Console.WriteLine("[7] <---- VOLVER ATRAS");
+                        Console.WriteLine(Environment.NewLine);
                         opcion = Convert.ToInt32(Console.ReadLine());
 
                         switch (opcion)
@@ -89,6 +92,7 @@ namespace Laboratorio3
 
                     while (opcion2 != 13)
                     {
+                        Console.WriteLine(Environment.NewLine);
                         Console.BackgroundColor = ConsoleColor.Blue;
                         Console.WriteLine("SELECCIONE UNA OPCIÓN");
                         Console.BackgroundColor = ConsoleColor.Black;
@@ -106,6 +110,7 @@ namespace Laboratorio3
                         Console.WriteLine("[11]CAMBIAR SUELDO AUXILIAR");
                         Console.WriteLine("[12]CAMBIAR HORARIO AUXILIAR");
                         Console.WriteLine("[13] <---- VOLVER ATRAS");
+                        Console.WriteLine(Environment.NewLine);
                         opcion2 = Convert.ToInt32(Console.ReadLine());
 
                         switch (opcion2)
@@ -157,6 +162,7 @@ namespace Laboratorio3
 
                     while (opcion3 != 4)
                     {
+                        Console.WriteLine(Environment.NewLine);
                         Console.BackgroundColor = ConsoleColor.Blue;
                         Console.WriteLine("SELECCIONE UNA OPCIÓN");
                         Console.BackgroundColor = ConsoleColor.Black;
@@ -165,22 +171,27 @@ namespace Laboratorio3
                         Console.WriteLine("[2]MOSTRAR COMPRAS DE CADA CLIENTE");
                         Console.WriteLine("[3]MOSTRAR COMPRAS DE CADA CAJERO");
                         Console.WriteLine("[4] <---- VOLVER ATRAS");
+                        Console.WriteLine(Environment.NewLine);
                         opcion3 = Convert.ToInt32(Console.ReadLine());
 
                         switch (opcion3)
                         {
                             case 1:
                                 Carrito carrito = new Carrito();
+                                Console.WriteLine("Rut Cajero:");
+                                string rutCajero = Console.ReadLine();
                                 Console.WriteLine("Rut Cliente:");
                                 string rutCliente = Console.ReadLine();
                                 int eleccion = 0;
 
                                 while (eleccion != 4)
                                 {
+                                    Console.WriteLine(Environment.NewLine);
                                     Console.WriteLine("[1]AGREGAR PRODUCTO");
                                     Console.WriteLine("[2]VER PRODUCTOS Y TOTAL CARRITO");
                                     Console.WriteLine("[3]FINALIZAR COMPRA");
                                     Console.WriteLine("[4]SALIR CARRITO SIN GUARDAR");
+                                    Console.WriteLine(Environment.NewLine);
                                     eleccion = Convert.ToInt32(Console.ReadLine());
                                     switch (eleccion)
                                     {
@@ -199,12 +210,20 @@ namespace Laboratorio3
                                             carrito.ProductosCarrito();
                                             break;
                                         case 3:
-                                            string compra = carrito.FinalizarCompra(rutCliente, clientes);
+                                            string compra = carrito.FinalizarCompra(rutCliente,rutCajero, clientes, cajeros);
                                             foreach (Cliente usuario in clientes)
                                             {
                                                 if (usuario.rut == rutCliente)
                                                 {
                                                     usuario.AñadirCompra(compra);
+                                                    Console.WriteLine("Añadido correctamente");
+                                                }
+                                            }
+                                            foreach (Cajero usuario in cajeros)
+                                            {
+                                                if (usuario.rut == rutCajero)
+                                                {
+                                                    usuario.AñadirVenta(compra);
                                                     Console.WriteLine("Añadido correctamente");
                                                 }
                                             }
@@ -238,6 +257,7 @@ namespace Laboratorio3
                 } else if (seleccion == 4)
                 {
                     Separador();
+                    Auxiliar.LimpiarPasillo(auxiliares);
                 } else if (seleccion == 5)
                 {
                     Separador();

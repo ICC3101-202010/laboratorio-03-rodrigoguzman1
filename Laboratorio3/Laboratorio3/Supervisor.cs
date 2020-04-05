@@ -52,6 +52,9 @@ namespace Laboratorio3
                 if (usuario.rut == rutSupervisor1)
                 {
                     usuario.SetSueldo(sueldoSupervisor1);
+                    Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("SUELDO CAMBIADO CON EXITO");
+                    Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Black;
                 }
             }
 
@@ -71,6 +74,9 @@ namespace Laboratorio3
                 if (usuario.rut == rutSupervisor2)
                 {
                     usuario.SetHorarioTrabajo(horaEntradaSupervisor1, horaSalidaSupervisor1);
+                    Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("HORARIO CAMBIADO CON EXITO");
+                    Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Black;
                 }
             }
             return supervisores;

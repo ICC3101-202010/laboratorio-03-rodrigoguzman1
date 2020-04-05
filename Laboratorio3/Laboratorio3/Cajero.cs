@@ -12,7 +12,7 @@ namespace Laboratorio3
 
         List<string> ventas = new List<string>();
 
-        public void AñadirCompra(string compra)
+        public void AñadirVenta(string compra)
         {
             ventas.Add(compra);
         }
@@ -68,6 +68,9 @@ namespace Laboratorio3
                 if (usuario.rut == rutCajero1)
                 {
                     usuario.SetSueldo(sueldoCajero1);
+                    Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("SUELDO CAMBIADO CON EXITO");
+                    Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Black;
                 }
             }
 
@@ -87,6 +90,9 @@ namespace Laboratorio3
                 if (usuario.rut == rutCajero2)
                 {
                     usuario.SetHorarioTrabajo(horaEntradaCajero1, horaSalidaCajero1);
+                    Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("HORARIO CAMBIADO CON EXITO");
+                    Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Black;
                 }
             }
             return cajeros;
