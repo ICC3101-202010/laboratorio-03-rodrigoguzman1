@@ -38,6 +38,9 @@
     <Compile Include="Supervisor.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Carrito.cs" />
+    <Compile Include="Jefe.cs" />
+    <Compile Include="Cajero.cs" />
+    <Compile Include="Auxiliar.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

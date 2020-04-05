@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Laboratorio3
 {
@@ -42,5 +43,29 @@ namespace Laboratorio3
             return "Nombre: "+ nombre + " Marca: " + marca + " Precio : $"+ precio + " Stock: "+ stock;
         }
 
+        public static Producto AgregarProducto()
+        {
+            Console.WriteLine("Nombre:");
+            string nombreProducto = Console.ReadLine();
+            Console.WriteLine("Marca:");
+            string marcaProducto = Console.ReadLine();
+            Console.WriteLine("Precio: ");
+            int precio = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Stock: ");
+            int stock = Convert.ToInt32(Console.ReadLine());
+
+            Producto producto = new Producto(nombreProducto, precio, marcaProducto, stock);
+
+            return producto;
+        }
+
+        public static void MostrarProductos(List<Producto> productos)
+        {
+            Console.WriteLine("Productos:");
+            foreach (Producto elemento in productos)
+            {
+                Console.WriteLine(elemento.Informacion());
+            }
+        }
     }
 }

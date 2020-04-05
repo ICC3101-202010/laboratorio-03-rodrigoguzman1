@@ -2,7 +2,7 @@
 
 namespace Laboratorio3
 {
-    class Persona
+    partial class Persona
     {
         public string rut;
         protected string nombre;

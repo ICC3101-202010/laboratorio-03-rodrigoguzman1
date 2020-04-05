@@ -26,6 +26,30 @@ namespace Laboratorio3
             }
         }
 
-        
+        public static Cliente AgregarCliente()
+        {
+            Console.WriteLine("Rut: ");
+            string rut = Console.ReadLine();
+            Console.WriteLine("Nombre: ");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("Apellido: ");
+            string apellido = Console.ReadLine();
+            Console.WriteLine("Fecha de nacimiento (dd/mm/aaaa): ");
+            string fechaNacimiento = Console.ReadLine();
+            Console.WriteLine("Nacionalidad: ");
+            string nacionalidad = Console.ReadLine();
+            Cliente cliente = new Cliente(rut, nombre, apellido, fechaNacimiento, nacionalidad);
+            return cliente;
+        }
+
+        public static void MostrarClientes(List<Cliente> clientes)
+        {
+            Console.WriteLine("Clientes:");
+            foreach (Cliente elemento in clientes)
+            {
+                Console.WriteLine(elemento.Informacion());
+            }
+        }
+
     }
 }
